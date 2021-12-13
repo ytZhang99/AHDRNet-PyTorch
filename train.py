@@ -35,12 +35,13 @@ class Trainer(object):
         self.train_loss = []
 
         # Validation Settings
-        self.ep = None
-        self.val_set = ValData(args.dir_test)
-        self.val_loader = data.DataLoader(self.val_set)
-        self.val_num = len(self.val_loader)
-        self.val_psnr = 0
-        self.curr_psnr = [0.]
+        if args.val:
+            self.ep = None
+            self.val_set = ValData(args.dir_test)
+            self.val_loader = data.DataLoader(self.val_set)
+            self.val_num = len(self.val_loader)
+            self.val_psnr = 0
+            self.curr_psnr = [0.]
 
         # Test Settings
         if args.test_only:
@@ -121,8 +122,9 @@ class Trainer(object):
             plt.savefig('loss_curve.png')
             plt.close('all')
 
-            if (ep + 1) % args.val_interval == 0:
-                self.validation(ep)
+            if args.val:
+                if (ep + 1) % args.val_interval == 0:
+                    self.validation(ep)
         print('===> Finished Training!')
 
     def validation(self, ep):
