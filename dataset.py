@@ -3,8 +3,9 @@ import cv2
 import glob
 import torch
 import numpy as np
-from utils import *
+
 from option import args
+from utils.utils import *
 from torch.utils.data import Dataset
 
 

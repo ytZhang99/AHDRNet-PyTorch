@@ -9,14 +9,13 @@ import numpy as np
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import torch.utils.data as data
-import torchvision.transforms as transforms
 
 from option import args
-from logger import Logger
-from utils import *
-from dataset import TrainData, ValData ,TestData
+from utils.utils import *
 from model import AHDRNet
+from utils.logger import Logger
 from torch.optim import Adam, lr_scheduler
+from dataset import TrainData, ValData, TestData
 
 
 class Trainer(object):

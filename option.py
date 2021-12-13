@@ -21,13 +21,13 @@ parser.add_argument('--val', type=bool, default=True)
 # Data specifications
 parser.add_argument('--logger_file', type=str, default='./train.log',
                     help='training log file name')
-parser.add_argument('--dir_train', type=str, default='../Kalantari_dataset/Training/',
+parser.add_argument('--dir_train', type=str, default='./data/Train/',
                     help='training dataset directory')
-parser.add_argument('--dir_test', type=str, default='../Kalantari_dataset/Test/',
+parser.add_argument('--dir_test', type=str, default='./data/Test/',
                     help='test dataset directory')
 parser.add_argument('--model_path', type=str, default='ckp/',
                     help='trained model directory')
-parser.add_argument('--model', type=str, default='latest.pth',
+parser.add_argument('--model', type=str, default='best_checkpoint.pth',
                     help='model name')
 parser.add_argument('--ext', type=list, default=['.png', '.jpg', '.tif', '.bmp'],
                     help='extension of image files')
